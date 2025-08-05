@@ -1,0 +1,190 @@
+:root {
+    --top-bar-bg: #f0f5ff;
+    --color-1: #0d58f3;
+    --color-2: #6d9af9;
+    --h1-text: clamp(1.4rem, 3vw, 1.8rem);
+    --p-text: clamp(1.2rem, 3vw, 1.6rem);
+    --promo-text: clamp(1rem, 3vw, 1.4rem);
+    --p-color: #444;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.top-bar {
+    background-color: var(--top-bar-bg);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-bottom: 4px;
+}
+
+.top-bar-item {
+    min-width: 140px;
+    font-weight: 500;
+}
+
+.banner-bg-image-sec {
+    background-image: url('/public/background-images/Dr\ farook\ clinic.JPG');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 700px;
+    width: 100%;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+.nabh-certification {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.nabh-logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.nabh-text {
+    font-size: var(--h1-text);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #333;
+}
+
+.nabh-text strong {
+    color: var(--color-1);
+}
+
+.content-sec {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    align-items: start;
+    background-color: var(--top-bar-bg);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.services-sec,
+.booking-sec {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    word-break: break-word;
+}
+
+.services-sec-h2,
+.booking-sec-h2 {
+    font-size: var(--h1-text);
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.services-sec,
+.booking-sec ul {
+    list-style: disc inside;
+    font-size: var(--p-text);
+    color: var(--p-color);
+    line-height: 1.6;
+}
+
+.promo-text {
+    margin: 20px 0;
+    font-size: var(--promo-text);
+    color: #333;
+    font-weight: 500;
+    background-color: #fff6e5;
+    padding: 15px;
+    border-left: 5px solid #ff9900;
+    border-radius: 8px;
+    line-height: 1.6;
+}
+
+.book-now-btn {
+    display: inline-block;
+    background-color: var(--color-1);
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.book-now-btn:hover {
+    background-color: var(--color-2);
+}
+
+.site-footer {
+    background-color: var(--color-1);
+    color: white;
+}
+
+.footer-content {
+    margin-top: 30px;
+    padding: 50px;
+    font-size: var(--promo-text);
+}
+
+.legal-block {
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 599px) {
+    .top-bar {
+        flex-direction: column;
+        text-align: end;
+        padding: 12px 16px;
+        gap: 6px;
+    }
+
+    .footer-content {
+        padding: 20px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 767px) {
+    .content-sec {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        max-width: 500px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .content-sec {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        max-width: 700px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .content-sec {
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        max-width: 900px;
+    }
+}
