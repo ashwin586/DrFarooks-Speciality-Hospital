@@ -149,6 +149,11 @@
     font-size: var(--promo-text);
 }
 
+.address-block {
+    display: flex;
+    gap: 10px;
+}
+
 .legal-block {
     text-align: center;
     margin-top: 20px;
@@ -166,12 +171,22 @@
         padding: 20px;
         text-align: center;
     }
+
+    .address-block img {
+        height: 50px;
+        width: 50px;
+    }
 }
 
 @media screen and (min-width: 600px) and (max-width: 767px) {
     .content-sec {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         max-width: 500px;
+    }
+
+    .address-block img {
+        height: 70px;
+        width: 70px;
     }
 }
 
