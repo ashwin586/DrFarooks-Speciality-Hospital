@@ -1,5 +1,5 @@
 :root {
-    --top-bar-bg: #f0f5ff;
+    --top-bar-bg: #dce9ff;
     --color-1: #0d58f3;
     --color-2: #6d9af9;
     --h1-text: clamp(1.4rem, 3vw, 1.8rem);
@@ -196,7 +196,7 @@ body {
 }
 
 .fade-up-on-load {
-    animation: fadeUp 1s ease forwards;
+    animation: fadeUp 1.5s ease forwards;
 }
 
 .fade-up-on-load.delay-1 {
