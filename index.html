@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="/public/background-images/hospital-logo.jpeg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <title>Dr Farooks Speciality Hospital | Laser & Laparoscopic Surgery in Trivandrum</title>
     <meta name="description"
         content="Dr Farooks Speciality Hospital, Paravankunnu Junction, Trivandrum offers advanced Laser & Laparoscopic surgeries, 24/7 Pediatric & Gynaecology services, ENT, General OP, and more. Call now to book an appointment.">
@@ -23,16 +25,36 @@
     <main>
         <!-- Banner Image Sec Start -->
         <section>
-            <div class="banner-bg-image-sec">
+            <div class="swiper banner-swiper">
                 <h1 class="visually-hidden">Dr Farook's Speciality Hospital - Best Varicose Veins Laser Surgery, Piles
                     Laser Surgery & Laparoscopic Hernia Surgery Laproscopic PPS Surgery in
                     Trivandrum</h1>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="/public/background-images/Dr farook clinic.JPG" alt="Dr farook clinic" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/public/background-images/Dr farook clinic reception.JPG"
+                            alt="Dr farook clinic reception" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/public/background-images/Dr farook consultancy.JPG"
+                            alt="Dr farook clinic consultancy" />
+                    </div>
+                </div>
+
+                <!-- Navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+
+                <!-- Pagination dots -->
+                <div class="swiper-pagination"></div>
             </div>
         </section>
         <!-- Banner Image Sec Stop -->
 
         <!-- NHBS Certification Description Sec Start -->
-        <section class="nabh-certification">
+        <section class="nabh-certification fade-up-on-load">
             <div class="nabh-content">
                 <img src="/public/background-images/nabh-logo.png" alt="NABH Certified Clinic Logo" class="nabh-logo" />
                 <p class="nabh-text">
@@ -46,7 +68,7 @@
         <!-- Content Sec Start -->
         <section>
             <div class="content-sec">
-                <div class="services-sec">
+                <div class="services-sec scroll-fade">
                     <h2 class="services-sec-h2">SERVICES AVAILABLE</h2>
                     <ul>
                         <li>24/7 Pediatric Services on Call</li>
@@ -58,7 +80,7 @@
                         <li>Laser Surgery OP</li>
                     </ul>
                 </div>
-                <div class="booking-sec">
+                <div class="booking-sec scroll-fade">
                     <h2 class="booking-sec-h2">LASER SURGERY</h2>
                     <ul>
                         <li>Varicose Vein Surgery <span class="mal-text">(വെരിക്കോസ് വെയിൻ ശസ്ത്രക്രിയ) </span></li>
@@ -86,7 +108,7 @@
 
         <!-- Footer Sec Start -->
         <footer class="site-footer">
-            <div class="footer-content">
+            <div class="footer-content scroll-fade">
                 <div class="address-block">
                     <img src="/public/background-images/hospital-logo.jpeg" alt="Dr Farook's Speciality Hospital Logo"
                         height="100px" width="100px">
@@ -111,6 +133,37 @@
 </body>
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                entry.target.classList.remove('visible');
+            }
+        });
+    });
+
+    document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
+
+    const swiper = new Swiper('.banner-swiper', {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        keyboard: {
+            enabled: true,
+        },
+    });
 </script>
 
 

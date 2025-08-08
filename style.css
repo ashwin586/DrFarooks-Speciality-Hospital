@@ -14,13 +14,19 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+
 .top-bar {
     background-color: var(--top-bar-bg);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 10px 20px;
-    margin-bottom: 4px;
 }
 
 .top-bar-item {
@@ -28,13 +34,15 @@
     font-weight: 500;
 }
 
-.banner-bg-image-sec {
-    background-image: url('/public/background-images/Dr\ farook\ clinic.JPG');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 700px;
+.banner-swiper {
     width: 100%;
+    height: 700px;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .visually-hidden {
@@ -83,6 +91,7 @@
     background-color: var(--top-bar-bg);
     border-radius: 10px;
     width: 100%;
+    margin-bottom: 30px;
 }
 
 .services-sec,
@@ -103,7 +112,7 @@
 
 .services-sec,
 .booking-sec ul {
-    list-style: disc inside;
+    list-style: disc outside;
     font-size: var(--p-text);
     color: var(--p-color);
     line-height: 1.6;
@@ -141,10 +150,25 @@
 .site-footer {
     background-color: var(--color-1);
     color: white;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    will-change: opacity, transform;
+    contain: layout style;
+
+}
+
+.scroll-fade.site-footer {
+    opacity: 0;
+    transform: translateY(40px);
+    visibility: hidden;
+}
+
+.scroll-fade.visible.site-footer {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
 }
 
 .footer-content {
-    margin-top: 30px;
     padding: 50px;
     font-size: var(--promo-text);
 }
@@ -159,12 +183,64 @@
     margin-top: 20px;
 }
 
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-up-on-load {
+    animation: fadeUp 1s ease forwards;
+}
+
+.fade-up-on-load.delay-1 {
+    animation-delay: 0.5s;
+}
+
+.fade-up-on-load.delay-2 {
+    animation-delay: 1s;
+}
+
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+    min-height: 200px;
+}
+
+.scroll-fade:not(.visible) {
+    visibility: hidden;
+}
+
+.scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @media screen and (max-width: 599px) {
     .top-bar {
         flex-direction: column;
-        text-align: end;
+        text-align: start;
         padding: 12px 16px;
         gap: 6px;
+    }
+
+    .banner-bg-image-sec {
+        height: 400px;
+    }
+
+
+    .banner-swiper {
+        width: 100%;
+        height: 400px;
     }
 
     .footer-content {
@@ -176,9 +252,28 @@
         height: 50px;
         width: 50px;
     }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 600px) and (max-width: 767px) {
+    .banner-bg-image-sec {
+        height: 400px;
+    }
+
+    .banner-swiper {
+        width: 100%;
+        height: 400px;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        display: none;
+    }
+
     .content-sec {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         max-width: 500px;
@@ -191,6 +286,15 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
+    .banner-bg-image-sec {
+        height: 500px;
+    }
+
+    .banner-swiper {
+        width: 100%;
+        height: 500px;
+    }
+
     .content-sec {
         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         max-width: 700px;
